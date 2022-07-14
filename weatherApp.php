@@ -32,14 +32,16 @@
           <div class="output d-flex justify-content-center">
           <?php
             if (array_key_exists('submit', $_GET)) {
-              //Se l'input è vuoto
               if (!$_GET['city']) {
                   $error = "Sorry, your input field is empty";
-                  echo '<div class="alert alert-danger w-25" role="alert">
-                  ' . $error . '
-                </div>';
+                  //If input is empty shows this
+                  if($error){
+                    echo '<div class="alert alert-danger w-25" role="alert">
+                    ' . $error . '
+                  </div>';
+                  }
               }
-              //Call Api
+              //Call API
               include('dataApi.php');
             }
             ?>
