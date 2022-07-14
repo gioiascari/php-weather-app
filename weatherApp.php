@@ -17,8 +17,8 @@
     <title>PHP WeatherApp</title>
   </head>
 
-<body>
-  <div class="container p-3">
+<body class="bg-info">
+  <div class="container-fluid p-3 ">
     <div class="row justify-content-center">
       <div class="col-8  text-center">
         <form action="" method="GET">
@@ -44,19 +44,19 @@
             ?>
           </div>
         </form>
-        <div class="card" >
+        <div class="card border-0 shadow mb-5 bg-white rounded" >
           <div class="card-img text-center p-3">
             <img src="http://openweathermap.org/img/wn/<?php echo $weatherArray['weather']['0']['icon']?>@2x.png" class="card-img-top w-25">
           </div>
          
-          <div class="card-body d-flex justify-content-between">
+          <div class="card-body rounded-bottom bg-warning text-white p-0 d-flex justify-content-between">
              <!-- Temperature -->
-            <div class="description w-25">
+            <div class="description w-25 p-3">
               <h4 class="card-title"><?php echo  intval($tempC) ?>&deg;C</h4>
             </div>
                <!-- /Temperature -->
-               <!-- Description  -->
-              <div class="description w-25">
+               <!-- Description  --> 
+              <div class="description w-25 p-3">
                 <h5 class="card-title"><?php echo $weatherArray['weather']['0']['main']?></h5>
                 <p class="card-text"> <?php echo $weatherArray['name'] ." " .$weatherArray['sys']['country']?></p>
                 
@@ -64,21 +64,21 @@
               
                <!-- /Description  -->
                <!-- Wind  -->
-              <div class="description w-25">
+              <div class="description w-25 p-3">
                   <h4 class="card-title">Wind </h4> 
                       <?php echo $weatherArray['wind']['speed']."km/h"?>
                   <p class="card-text"></p>
               </div>
                <!-- /Wind  -->
                <!-- Humidity  -->
-               <div class="description w-25">
+               <div class="description w-25 p-3">
                   <h4 class="card-title">Humidity </h4> 
                       <?php echo$weatherArray['main']['humidity']."%"?>
                   <p class="card-text"></p>
               </div>
                <!-- /Humidity  -->
               <!-- Date  -->
-              <div class="description w-25">
+              <div class="description w-25 p-3">
                 <h4 class="card-title">
                     <?php echo date('d M', $weatherArray['dt'])?>
                 </h4> 
