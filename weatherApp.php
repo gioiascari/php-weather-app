@@ -22,11 +22,26 @@
             Search global weather
         </h4>
         <form action="" method="GET">
-          <label for="city">Enter your city</label>
           <div>
-            <input type="text" name="text" id="text" placeholder="city">
+             <label for="city">Enter your city</label>
+          </div>
+          <div>
+            <input type="text" name="city" id="city" placeholder="city">
           </div>
           <button type="submit" name="submit" class="btn btn-outline-warning ">Submit</button>
+          <div class="output">
+          <?php
+if (array_key_exists('submit', $_GET)) {
+    //Se l'input è vuoto
+    if (!$_GET['city']) {
+        $error = "Sorry, your input field is empty";
+        echo $error;
+    }
+
+}
+
+?>
+          </div>
         </form>
       </div>
     </div>
