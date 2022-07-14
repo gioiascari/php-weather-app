@@ -10,8 +10,10 @@
     // print_r() displays information about a variable in a way that's readable by humans.
     // view page source
     // print_r($weatherArray);
-    $weather = "<div><b>".$weatherArray['name']."," .$weatherArray['sys']['country']. ":</b>" .$tempC."&deg;C</div>";
+    $weather = "<div><b>".$weatherArray['name'].", " .$weatherArray['sys']['country']. " :</b> " . intval($tempC). "&deg;C</div>";//Intval:Get the integer value of a variable.
     $weather .= "<b>Weather Condition: </b>" .$weatherArray['weather']['0']['description'];
+    $weather .= "<div><b>Wind : </b>" .$weatherArray['wind']['speed']."km/h</div>";
+    $weather .= "<div><b>Humidity : </b>" .$weatherArray['main']['humidity']."%</div>";
     if($weather){
         echo '<div class="alert alert-success" role="alert">
                 ' . $weather . '
