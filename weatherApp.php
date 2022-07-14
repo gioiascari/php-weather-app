@@ -39,6 +39,7 @@ if (array_key_exists('submit', $_GET)) {
         ' . $error . '
       </div>';
     }
+    include ('dataApi.php');
 
 }
 
