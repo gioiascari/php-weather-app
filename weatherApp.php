@@ -31,19 +31,18 @@
           <button type="submit" name="submit" class="btn btn-outline-warning ">Submit</button>
           <div class="output d-flex justify-content-center">
           <?php
-if (array_key_exists('submit', $_GET)) {
-    //Se l'input è vuoto
-    if (!$_GET['city']) {
-        $error = "Sorry, your input field is empty";
-        echo '<div class="alert alert-danger w-25" role="alert">
-        ' . $error . '
-      </div>';
-    }
-    include ('dataApi.php');
-
-}
-
-?>
+            if (array_key_exists('submit', $_GET)) {
+              //Se l'input è vuoto
+              if (!$_GET['city']) {
+                  $error = "Sorry, your input field is empty";
+                  echo '<div class="alert alert-danger w-25" role="alert">
+                  ' . $error . '
+                </div>';
+              }
+              //Call Api
+              include('dataApi.php');
+            }
+            ?>
           </div>
         </form>
       </div>
