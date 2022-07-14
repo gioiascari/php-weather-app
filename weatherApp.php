@@ -1,4 +1,7 @@
+<?php
+ include('dataApi.php');
 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,20 +18,15 @@
   </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h4>
-            Search global weather
-        </h4>
+  <div class="container p-3">
+    <div class="row justify-content-center">
+      <div class="col-8  text-center">
         <form action="" method="GET">
           <div>
-             <label for="city">Enter your city</label>
-          </div>
-          <div>
             <input type="text" name="city" id="city" placeholder="city">
-          </div>
+         
           <button type="submit" name="submit" class="btn btn-outline-warning ">Submit</button>
+          </div>
           <div class="output d-flex justify-content-center">
           <?php
             if (array_key_exists('submit', $_GET)) {
@@ -41,12 +39,53 @@
                   </div>';
                   }
               }
-              //Call API
-              include('dataApi.php');
+             
             }
             ?>
           </div>
         </form>
+        <div class="card" >
+          <div class="card-img text-center p-3">
+            <img src="http://openweathermap.org/img/wn/<?php echo $weatherArray['weather']['0']['icon']?>@2x.png" class="card-img-top w-25">
+          </div>
+         
+          <div class="card-body d-flex justify-content-between">
+             <!-- Temperature -->
+            <div class="description w-25">
+              <h4 class="card-title"><?php echo  intval($tempC) ?>&deg;C</h4>
+            </div>
+               <!-- /Temperature -->
+               <!-- Description  -->
+              <div class="description w-25">
+                <h5 class="card-title"><?php echo $weatherArray['weather']['0']['main']?></h5>
+                <p class="card-text"> <?php echo $weatherArray['name'] ." " .$weatherArray['sys']['country']?></p>
+                
+              </div>
+              
+               <!-- /Description  -->
+               <!-- Wind  -->
+              <div class="description w-25">
+                  <h4 class="card-title">Wind </h4> 
+                      <?php echo $weatherArray['wind']['speed']."km/h"?>
+                  <p class="card-text"></p>
+              </div>
+               <!-- /Wind  -->
+               <!-- Humidity  -->
+               <div class="description w-25">
+                  <h4 class="card-title">Humidity </h4> 
+                      <?php echo$weatherArray['main']['humidity']."%"?>
+                  <p class="card-text"></p>
+              </div>
+               <!-- /Humidity  -->
+              <!-- Date  -->
+              <div class="description w-25">
+                <h4 class="card-title">
+                    <?php echo date('d M', $weatherArray['dt'])?>
+                </h4> 
+              </div>
+              <!-- /Date  -->
+            </div>
+          </div>
       </div>
     </div>
   </div>
